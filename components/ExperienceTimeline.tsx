@@ -1,47 +1,59 @@
 "use client";
 
 import { Briefcase, GraduationCap, Award, Users } from "lucide-react";
+import ScrollFloat from "./ui/ScrollFloat";
 
 const experiences = [
   {
-    year: "2025 – Present",
-    title: "HackerRank Ambassador",
-    company: "HackerRank",
+    year: "Feb 2026 – Present",
+    title: "Data Scientist / AI Engineer",
+    company: "Theodo Data & AI — Paris, France",
     description:
-    "Promoting coding culture and helping developers worldwide improve their skills through challenges, certifications, and community events.",
-    icon: Award,
-    iconColor: "text-accent-amber",
-    iconBg: "bg-accent-amber/10",
-    type: "community",
-  },
-  {
-    year: "2025 – Present",
-    title: "AI / ML Contributor",
-    company: "Hugging Face",
-    description:
-    "Publishing open-source models on Hugging Face Hub, exploring NLP and computer vision, and contributing to the democratization of AI.",
-    icon: Users,
-    iconColor: "text-accent",
-    iconBg: "bg-accent/10",
-    type: "open-source",
-  },
-  {
-    year: "Jul 2025 – Sep 2025",
-    title: "Data Engineer / Data Scientist Intern",
-    company: "Theodo — Paris, France",
-    description:
-      "Designed and deployed an automated data ingestion pipeline on Databricks using Python Wheels, replacing manual workflows. Developed intelligent PDF data extraction using LLM APIs for automated chunking and information retrieval from unstructured documents.",
+      "Create pipelines for data ingestion and processing, and implement LLM-based solutions for unstructured data retrieval. Creation of agent based repository and agent based data processing pipeline.",
     icon: Briefcase,
     iconColor: "text-accent-green",
     iconBg: "bg-accent-green/10",
     type: "professional",
   },
   {
-    year: "2023 – Present",
-    title: "Computer Science Student - Applied Mathematics & AI",
-    company: "ENSIMAG — Grenoble, France",
+    year: "Jul 2025 – Sep 2025",
+    title: "Data Engineer / Scientist Intern",
+    company: "Theodo Data & AI — Paris, France",
     description:
-      "Studying algorithms, data structures, distributed systems, software engineering, and artificial intelligence. Exchange semester at TU Graz (Austria) covering GPU Programming, Data Science, and HCI.",
+      "Automated manual data ingestion pipelines using Python Wheels on Databricks. Implemented LLM-based PDF extraction for unstructured data retrieval, significantly improving data processing speed and accuracy.",
+    icon: Briefcase,
+    iconColor: "text-accent-green",
+    iconBg: "bg-accent-green/10",
+    type: "professional",
+  },
+  {
+    year: "Feb 2025 – Jul 2025",
+    title: "Exchange Semester — TU Graz",
+    company: "Graz University of Technology — Graz, Austria",
+    description:
+      "Advanced studies in Data Science, Artificial Intelligence, GPU Programming (CUDA), and Geometric 3D-Modeling. Focused on high-performance computing and Human-Computer Interaction.",
+    icon: GraduationCap,
+    iconColor: "text-blue-400",
+    iconBg: "bg-blue-400/10",
+    type: "education",
+  },
+  {
+    year: "2025 – Present",
+    title: "HackerRank Ambassador",
+    company: "HackerRank",
+    description:
+      "Leading community initiatives, organizing coding challenges, and mentoring students to bridge the gap between academia and the tech industry.",
+    icon: Award,
+    iconColor: "text-accent-amber",
+    iconBg: "bg-accent-amber/10",
+    type: "community",
+  },
+  {
+    year: "Sep 2023 – Present",
+    title: "Engineering Student — ENSIMAG",
+    company: "Grenoble INP - ENSIMAG — Grenoble, France",
+    description:
+      "Ranked in top-tier French engineering school. Specializing in Applied Mathematics, Computer Science, and Artificial Intelligence. Deep-diving into OS design, algorithmics, and distributed systems.",
     icon: GraduationCap,
     iconColor: "text-pink-400",
     iconBg: "bg-pink-400/10",
@@ -51,12 +63,25 @@ const experiences = [
 
 export default function ExperienceTimeline() {
   return (
-    <section id="experience" className="px-6 py-20">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-4">Experience</h2>
-        <p className="text-muted text-center mb-16 max-w-lg mx-auto">
-          My journey through tech, community, and open source.
-        </p>
+    <section id="experience" className="px-6 py-20 bg-transparent relative overflow-hidden">
+      <div className="max-w-6xl mx-auto">
+        <div className="flex flex-col items-center mb-16">
+          <ScrollFloat
+            animationDuration={1}
+            ease="back.out(1.5)"
+            scrollStart="top bottom-=10%"
+            scrollEnd="bottom center"
+            stagger={0.03}
+            containerClassName="mb-4"
+          >
+            Professional Journey
+          </ScrollFloat>
+          <div className="h-1 w-20 bg-accent-green rounded-full mb-6" />
+          <p className="text-muted text-center max-w-lg mx-auto">
+            My career path from engineering internships to current roles 
+            in AI research and data engineering.
+          </p>
+        </div>
 
         <div className="relative">
           {/* Timeline line */}

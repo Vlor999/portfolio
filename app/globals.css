@@ -1,15 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --background: #09090b;
+  --background: #030303;
   --foreground: #fafafa;
-  --card: #18181b;
-  --card-border: #27272a;
-  --muted: #a1a1aa;
+  --card: #09090b;
+  --card-border: #18181b;
+  --muted: #71717a;
   --accent: #6366f1;
-  --accent-green: #22c55e;
+  --accent-green: #10b981;
   --accent-amber: #f59e0b;
+  
+  --grid-color: rgba(255, 255, 255, 0.03);
 }
+
 
 @theme inline {
   --color-background: var(--background);
@@ -26,9 +29,14 @@
 
 body {
   background: var(--background);
+  background-image: 
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 40px 40px;
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
 }
+
 
 /* Smooth scrolling */
 html {

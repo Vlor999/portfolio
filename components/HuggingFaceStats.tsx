@@ -8,6 +8,8 @@ interface HFData {
   downloads: number;
 }
 
+import CountUp from "./ui/CountUp";
+
 export default function HuggingFaceStats() {
   const [stats, setStats] = useState<HFData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -69,14 +71,14 @@ export default function HuggingFaceStats() {
           <div className="bg-background/50 border border-card-border rounded-xl p-4 text-center">
             <Box className="w-5 h-5 text-accent mx-auto mb-2" />
             <p className="text-2xl font-bold font-mono text-accent">
-              {stats.count}
+              <CountUp to={stats.count} from={0} duration={1} />
             </p>
             <p className="text-xs text-muted mt-1">Models</p>
           </div>
           <div className="bg-background/50 border border-card-border rounded-xl p-4 text-center">
             <Download className="w-5 h-5 text-accent-green mx-auto mb-2" />
             <p className="text-2xl font-bold font-mono text-accent-green">
-              {stats.downloads.toLocaleString()}
+              <CountUp to={stats.downloads} from={0} duration={1.5} separator="," />
             </p>
             <p className="text-xs text-muted mt-1">Downloads</p>
           </div>
@@ -85,3 +87,4 @@ export default function HuggingFaceStats() {
     </div>
   );
 }
+

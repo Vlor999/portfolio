@@ -1,107 +1,84 @@
 "use client";
 
-import { Code2, Brain, Wrench, Database, Globe, Terminal } from "lucide-react";
+import { Code2, Brain, Wrench, Terminal, Cpu } from "lucide-react";
+import SpotlightCard from "./SpotlightCard";
+import ScrollFloat from "./ui/ScrollFloat";
 
 const skillCategories = [
   {
-    title: "Languages",
+    title: "Programming",
     icon: Code2,
     color: "text-accent",
-    border: "border-accent/20",
-    skills: [
-      { name: "Python", level: 95 },
-      { name: "Java", level: 75 },
-      { name: "C/C++", level: 70 },
-      { name: "SQL", level: 80 },
-    ],
+    skills: ["Python", "C/C++", "Java", "SQL", "Bash", "CUDA"],
   },
   {
-    title: "AI / ML",
+    title: "AI / Machine Learning",
     icon: Brain,
     color: "text-accent-green",
-    border: "border-accent-green/20",
-    skills: [
-      { name: "MLX/MLX-LM", level: 80 },
-      { name: "PyTorch", level: 75 },
-      { name: "Hugging Face", level: 70 },
-    ],
+    skills: ["MLX / MLX-LM", "PyTorch", "Hugging Face", "Vision (YOLO)", "RAG Systems"],
   },
   {
-    title: "Tools & DevOps",
+    title: "Systems & DevOps",
+    icon: Cpu,
+    color: "text-pink-400",
+    skills: ["Linux / OS Design", "Distributed Systems", "GPU Programming", "Concurrent Coding"],
+  },
+  {
+    title: "Tools & Infrastructure",
     icon: Wrench,
     color: "text-cyan-400",
-    border: "border-cyan-400/20",
-    skills: [
-      { name: "Git & GitHub", level: 95 },
-      { name: "CI/CD", level: 75 },
-      { name: "Linux", level: 85 },
-    ],
-  },
-  {
-    title: "CLI & Scripting",
-    icon: Terminal,
-    color: "text-orange-400",
-    border: "border-orange-400/20",
-    skills: [
-      { name: "Bash", level: 80 },
-      { name: "Makefile", level: 70 },
-    ],
+    skills: ["Git / CI/CD", "uv / FastAPI", "Databricks / ETL", "GCP / Docker"],
   },
 ];
 
 export default function Skills() {
   return (
-    <section id="skills" className="px-6 py-20 bg-card/30">
+    <section id="skills" className="px-6 py-20">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-4">Skills</h2>
-        <p className="text-muted text-center mb-12 max-w-lg mx-auto">
-          Technologies and tools I work with daily.
-        </p>
+        <div className="flex flex-col items-center mb-16">
+          <ScrollFloat
+            animationDuration={1}
+            ease="back.out(2)"
+            scrollStart="top bottom-=10%"
+            scrollEnd="bottom center"
+            stagger={0.03}
+            containerClassName="mb-4"
+          >
+            Technical Stack
+          </ScrollFloat>
+          <div className="h-1 w-20 bg-accent-amber rounded-full mb-6" />
+          <p className="text-muted text-center max-w-lg mx-auto">
+            A comprehensive overview of the languages, frameworks, and tools 
+            I use to build scalable systems and intelligent applications.
+          </p>
+        </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {skillCategories.map((cat) => (
-            <div
+            <SpotlightCard
               key={cat.title}
-              className={`p-6 rounded-2xl border border-card-border bg-card hover:${cat.border} transition-colors`}
+              className="border-card-border/50 flex flex-col"
+              spotlightColor="rgba(255, 255, 255, 0.03)"
             >
-              <div className="flex items-center gap-3 mb-5">
-                <cat.icon className={`w-5 h-5 ${cat.color}`} />
-                <h3 className="font-semibold">{cat.title}</h3>
+              <div className="flex items-center gap-3 mb-6">
+                <div className={`p-2 rounded-lg bg-background/50 border border-card-border/50 ${cat.color}`}>
+                  <cat.icon className="w-5 h-5" />
+                </div>
+                <h3 className="font-bold text-sm tracking-tight uppercase">{cat.title}</h3>
               </div>
-              <div className="space-y-3">
+              <ul className="space-y-2 flex-1">
                 {cat.skills.map((skill) => (
-                  <div key={skill.name}>
-                    <div className="flex justify-between text-sm mb-1">
-                      <span className="text-foreground/80">{skill.name}</span>
-                      <span className="text-muted text-xs font-mono">
-                        {skill.level}%
-                      </span>
-                    </div>
-                    <div className="h-1.5 rounded-full bg-background/50 overflow-hidden">
-                      <div
-                        className={`h-full rounded-full bg-gradient-to-r from-card-border ${
-                          cat.color === "text-accent"
-                            ? "to-accent"
-                            : cat.color === "text-accent-green"
-                            ? "to-accent-green"
-                            : cat.color === "text-accent-amber"
-                            ? "to-accent-amber"
-                            : cat.color === "text-pink-400"
-                            ? "to-pink-400"
-                            : cat.color === "text-cyan-400"
-                            ? "to-cyan-400"
-                            : "to-orange-400"
-                        } transition-all duration-1000`}
-                        style={{ width: `${skill.level}%` }}
-                      />
-                    </div>
-                  </div>
+                  <li key={skill} className="flex items-center gap-2 text-sm text-muted/90 group/item">
+                    <div className="w-1 h-1 rounded-full bg-card-border group-hover/item:bg-accent transition-colors" />
+                    {skill}
+                  </li>
                 ))}
-              </div>
-            </div>
+              </ul>
+            </SpotlightCard>
           ))}
         </div>
       </div>
     </section>
   );
 }
+
