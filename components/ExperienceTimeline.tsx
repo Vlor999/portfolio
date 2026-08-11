@@ -5,6 +5,17 @@ import ScrollFloat from "./ui/ScrollFloat";
 
 const experiences = [
   {
+    year: "From Sep 2026",
+    title: "Data Engineer / Data Scientist",
+    company: "Theodo Data & AI — Paris, France",
+    description:
+      "Joining the data & AI team full-time after interning there in 2025, on data platform and LLM-based products.",
+    icon: Briefcase,
+    iconColor: "text-accent-green",
+    iconBg: "bg-accent-green/10",
+    type: "professional",
+  },
+  {
     year: "Feb 2026 – Aug 2026",
     title: "Data Scientist Intern — AI Pipeline",
     company: "ALLAI — Paris, France",
