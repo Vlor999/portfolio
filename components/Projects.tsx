@@ -1,6 +1,7 @@
 "use client";
 
-import { Github, PlayCircle } from "lucide-react";
+import { Github, PlayCircle, FileText } from "lucide-react";
+import Link from "next/link";
 import ScrollFloat from "./ui/ScrollFloat";
 import SpotlightCard from "./SpotlightCard";
 
@@ -10,6 +11,7 @@ const projects: {
   tags: string[];
   github?: string;
   demo?: string;
+  caseStudy?: string;
   highlight: boolean;
 }[] = [
   {
@@ -17,6 +19,7 @@ const projects: {
     description:
       "A compiler for the DECA language, built in a team of five: AST construction, semantic analysis and assembly code emission. Set up the CI/CD pipeline and parallelized the test suite to keep build times short. Source is a private school repository.",
     tags: ["Java", "Python", "Compilers", "CI/CD"],
+    caseStudy: "/projects/deca",
     highlight: true,
   },
   {
@@ -170,6 +173,15 @@ export default function Projects() {
                     <Github className="w-4 h-4" />
                     View Source
                   </a>
+                )}
+                {project.caseStudy && (
+                  <Link
+                    href={project.caseStudy}
+                    className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-accent transition-colors"
+                  >
+                    <FileText className="w-4 h-4" />
+                    Read case study
+                  </Link>
                 )}
                 {project.demo && (
                   <a
