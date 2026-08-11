@@ -5,11 +5,11 @@ import ScrollFloat from "./ui/ScrollFloat";
 
 const experiences = [
   {
-    year: "Feb 2026 – Present",
-    title: "Data Scientist / AI Engineer",
-    company: "Theodo Data & AI — Paris, France",
+    year: "Feb 2026 – Aug 2026",
+    title: "Data Scientist Intern — AI Pipeline",
+    company: "ALLAI — Paris, France",
     description:
-      "Create pipelines for data ingestion and processing, and implement LLM-based solutions for unstructured data retrieval. Creation of agent based repository and agent based data processing pipeline.",
+      "Built the AI pipeline of a multimodal app for families of Alzheimer's patients, turning photos, messages and voice notes into short readable summaries. Local inference with Gemma 3 12B to keep sensitive data on-device, speculative decoding for a 20% inference speedup, Docker deployment to GCP Artifact Registry via GitHub Actions, and LLM call tracing with Langfuse.",
     icon: Briefcase,
     iconColor: "text-accent-green",
     iconBg: "bg-accent-green/10",
@@ -18,9 +18,9 @@ const experiences = [
   {
     year: "Jul 2025 – Sep 2025",
     title: "Data Engineer / Scientist Intern",
-    company: "Theodo Data & AI — Paris, France",
+    company: "Theodo Data & AI for IQVIA — Paris, France",
     description:
-      "Automated manual data ingestion pipelines using Python Wheels on Databricks. Implemented LLM-based PDF extraction for unstructured data retrieval, significantly improving data processing speed and accuracy.",
+      "Replaced a manual ingestion process with an automated pipeline (PDF extraction, web scraping) processing ~100GB/day, improving reliability by ~80%. Built ETL jobs as Python Wheels on Databricks, containerized services with Docker, and shipped a Document AI solution using LiteLLM for semantic chunking and retrieval.",
     icon: Briefcase,
     iconColor: "text-accent-green",
     iconBg: "bg-accent-green/10",

@@ -1,32 +1,32 @@
 "use client";
 import React from "react";
-import { Github, GitBranch, Terminal, Calculator, Globe } from "lucide-react";
+import { Github, GitBranch, Terminal, Calculator } from "lucide-react";
 import SpotlightCard from "./SpotlightCard";
 import ScrollFloat from "./ui/ScrollFloat";
 
 const contributions = [
   {
     title: "MLX — Window Functions",
-    org: "MLX (Apple Silicon)",
-    description: "Developed and contributed a suite of window functions (Blackman, Hanning, Hamming, Kaiser, Bartlett) to Apple's machine learning framework. Crucial for signal processing and sequence modeling.",
+    org: "ml-explore/mlx · 4 PRs merged",
+    description: "Contributed the window functions now shipping in mlx.core to Apple's machine learning framework: hanning (#3124), hamming (#3135), blackman (#3136) and bartlett (#3155). Each one validated against NumPy as a numerical reference, plus a prototype native i0 (modified Bessel) kernel to unlock the Kaiser window.",
     icon: Calculator,
-    github: "https://github.com/ml-explore/mlx",
+    github: "https://github.com/ml-explore/mlx/pulls?q=is%3Apr+author%3AVlor999",
     tags: ["Python", "C++", "Signal Processing"],
     color: "rgba(34, 197, 94, 0.15)"
   },
   {
-    title: "Commitizen",
-    org: "Commitizen-Tools",
-    description: "Implemented comprehensive multilanguage capabilities for the standard conventional commit tool, improving international developer accessibility.",
-    icon: Globe,
-    github: "https://github.com/commitizen-tools/commitizen",
-    tags: ["Python", "CLI"],
+    title: "pytest & oh-my-zsh",
+    org: "pytest-dev · ohmyzsh · under review",
+    description: "Proposed a --name-only option for pytest's terminal reporter, and git aliases to diff the current branch against main/develop in oh-my-zsh. Both PRs open upstream.",
+    icon: GitBranch,
+    github: "https://github.com/pytest-dev/pytest/pull/14451",
+    tags: ["Python", "Shell", "DX"],
     color: "rgba(99, 102, 241, 0.15)"
   },
   {
     title: "mxtop — Apple Silicon",
-    org: "mxtop",
-    description: "Enhanced CLI functionality and user interaction patterns for this real-time performance monitoring tool tailored for Apple M-series chips.",
+    org: "Vlor999/mxtop · maintainer",
+    description: "Maintain mxtop, a real-time performance monitoring CLI for Apple M-series chips, revived from the unmaintained asitop and published on PyPI. Reworked the rendering so GPU/ANE and memory-bandwidth metrics read at a glance.",
     icon: Terminal,
     github: "https://github.com/Vlor999/mxtop",
     tags: ["Python", "Monitoring", "CLI"],
