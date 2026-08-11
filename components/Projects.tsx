@@ -15,9 +15,8 @@ const projects: {
   {
     title: "DECA Compiler",
     description:
-      "A compiler for the DECA language, built in a team of five: AST construction, semantic analysis and assembly code emission. Set up the CI/CD pipeline and parallelized the test suite to keep build times short. Source is a private school repository, see the demo.",
+      "A compiler for the DECA language, built in a team of five: AST construction, semantic analysis and assembly code emission. Set up the CI/CD pipeline and parallelized the test suite to keep build times short. Source is a private school repository.",
     tags: ["Java", "Python", "Compilers", "CI/CD"],
-    demo: "https://youtu.be/rfyE4DMG94s",
     highlight: true,
   },
   {
@@ -26,6 +25,7 @@ const projects: {
       "A top-down 2D survival game where you command NPCs naturally using your voice. Built for the Mistral Worldwide Hackathon 2026, it uses the Voxtral model to interpret spoken orders into structured game actions, integrated with ElevenLabs TTS.",
     tags: ["Python", "Mistral AI", "Voxtral", "ElevenLabs", "GameDev"],
     github: "https://github.com/Vlor999/G4AL",
+    demo: "https://youtu.be/rfyE4DMG94s",
     highlight: true,
   },
   {
