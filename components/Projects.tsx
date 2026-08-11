@@ -1,10 +1,25 @@
 "use client";
 
-import { Github } from "lucide-react";
+import { Github, PlayCircle } from "lucide-react";
 import ScrollFloat from "./ui/ScrollFloat";
 import SpotlightCard from "./SpotlightCard";
 
-const projects = [
+const projects: {
+  title: string;
+  description: string;
+  tags: string[];
+  github?: string;
+  demo?: string;
+  highlight: boolean;
+}[] = [
+  {
+    title: "DECA Compiler",
+    description:
+      "A compiler for the DECA language, built in a team of five: AST construction, semantic analysis and assembly code emission. Set up the CI/CD pipeline and parallelized the test suite to keep build times short. Source is a private school repository, see the demo.",
+    tags: ["Java", "Python", "Compilers", "CI/CD"],
+    demo: "https://youtu.be/rfyE4DMG94s",
+    highlight: true,
+  },
   {
     title: "G4AL — Vibe Gaming",
     description:
@@ -144,16 +159,29 @@ export default function Projects() {
                 </div>
               </div>
 
-              <div className="flex items-center justify-between pt-6 border-t border-card-border/50">
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-accent transition-colors"
-                >
-                  <Github className="w-4 h-4" />
-                  View Source
-                </a>
+              <div className="flex items-center gap-6 pt-6 border-t border-card-border/50">
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-accent transition-colors"
+                  >
+                    <Github className="w-4 h-4" />
+                    View Source
+                  </a>
+                )}
+                {project.demo && (
+                  <a
+                    href={project.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-accent transition-colors"
+                  >
+                    <PlayCircle className="w-4 h-4" />
+                    Watch Demo
+                  </a>
+                )}
               </div>
             </SpotlightCard>
           ))}
