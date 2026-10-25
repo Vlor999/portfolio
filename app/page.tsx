@@ -1,3 +1,7 @@
+"use client";
+
+import { useMemo } from "react";
+import { useLang } from "@/lib/i18n";
 import Hero from "@/components/Hero";
 import StatsBar from "@/components/StatsBar";
 import ExperienceTimeline from "@/components/ExperienceTimeline";
@@ -10,16 +14,20 @@ import PillNav from "@/components/ui/PillNav";
 import LiquidEther from "@/components/ui/LiquidEther";
 
 const navItems = [
-  { label: 'Home', href: '#' },
-  { label: 'Projects', href: '#projects' },
+  { label: { en: 'Home', fr: 'Accueil' }, href: '#' },
+  { label: { en: 'Projects', fr: 'Projets' }, href: '#projects' },
   { label: 'Open Source', href: '#opensource' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Skills', href: '#skills' },
+  { label: { en: 'Experience', fr: 'Parcours' }, href: '#experience' },
+  { label: { en: 'Skills', fr: 'Compétences' }, href: '#skills' },
 ];
 
 const BACKGROUND_COLORS = ['#4f46e5', '#ec4899', '#8b5cf6'];
 
 export default function Home() {
+  const { lang, t } = useLang();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const items = useMemo(() => navItems.map((i) => ({ ...i, label: t(i.label) })), [lang]);
+
   return (
     <main className="relative min-h-screen bg-transparent text-foreground selection:bg-accent/30 selection:text-accent overflow-x-hidden">
       {/* Global Background Effect */}
@@ -34,7 +42,7 @@ export default function Home() {
       </div>
 
       <PillNav 
-        items={navItems}
+        items={items}
         baseColor="#09090b"
         pillColor="#18181b"
         pillTextColor="#fafafa"

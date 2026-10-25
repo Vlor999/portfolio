@@ -9,8 +9,10 @@ interface HFData {
 }
 
 import CountUp from "./ui/CountUp";
+import { useLang } from "@/lib/i18n";
 
 export default function HuggingFaceStats() {
+  const { t } = useLang();
   const [stats, setStats] = useState<HFData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -62,7 +64,7 @@ export default function HuggingFaceStats() {
 
       {error && (
         <p className="text-sm text-red-400 text-center py-4">
-          Unable to load stats
+          {t({ en: "Unable to load stats", fr: "Impossible de charger les statistiques" })}
         </p>
       )}
 
@@ -73,14 +75,14 @@ export default function HuggingFaceStats() {
             <p className="text-2xl font-bold font-mono text-accent">
               <CountUp to={stats.count} from={0} duration={1} />
             </p>
-            <p className="text-xs text-muted mt-1">Models</p>
+            <p className="text-xs text-muted mt-1">{t({ en: "Models", fr: "Modèles" })}</p>
           </div>
           <div className="bg-background/50 border border-card-border rounded-xl p-4 text-center">
             <Download className="w-5 h-5 text-accent-green mx-auto mb-2" />
             <p className="text-2xl font-bold font-mono text-accent-green">
               <CountUp to={stats.downloads} from={0} duration={1.5} separator="," />
             </p>
-            <p className="text-xs text-muted mt-1">Downloads</p>
+            <p className="text-xs text-muted mt-1">{t({ en: "Downloads", fr: "Téléchargements" })}</p>
           </div>
         </div>
       )}

@@ -3,6 +3,7 @@
 import { Github, Star, GitFork, Code2 } from "lucide-react";
 import { useEffect, useState } from "react";
 import HuggingFaceStats from "./HuggingFaceStats";
+import { useLang } from "@/lib/i18n";
 
 interface GitHubStats {
   publicRepos: number;
@@ -11,6 +12,7 @@ interface GitHubStats {
 }
 
 export default function StatsBar() {
+  const { t } = useLang();
   const [gh, setGh] = useState<GitHubStats | null>(null);
 
   useEffect(() => {
@@ -47,10 +49,10 @@ export default function StatsBar() {
     <section id="stats" className="px-6 py-16">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl font-bold text-center mb-4">
-          Open Source Activity
+          {t({ en: "Open Source Activity", fr: "Activité open source" })}
         </h2>
         <p className="text-muted text-center mb-12 max-w-lg mx-auto">
-          Real-time stats from my GitHub and Hugging Face profiles.
+          {t({ en: "Real-time stats from my GitHub and Hugging Face profiles.", fr: "Statistiques en temps réel de mes profils GitHub et Hugging Face." })}
         </p>
 
         <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
@@ -76,21 +78,21 @@ export default function StatsBar() {
                   <p className="text-2xl font-bold font-mono text-accent-green">
                     {gh.publicRepos}
                   </p>
-                  <p className="text-xs text-muted mt-1">Repos</p>
+                  <p className="text-xs text-muted mt-1">{t({ en: "Repos", fr: "Dépôts" })}</p>
                 </div>
                 <div className="bg-background/50 border border-card-border rounded-xl p-4 text-center">
                   <Star className="w-5 h-5 text-accent-amber mx-auto mb-2" />
                   <p className="text-2xl font-bold font-mono text-accent-amber">
                     {gh.totalStars}
                   </p>
-                  <p className="text-xs text-muted mt-1">Stars</p>
+                  <p className="text-xs text-muted mt-1">{t({ en: "Stars", fr: "Étoiles" })}</p>
                 </div>
                 <div className="bg-background/50 border border-card-border rounded-xl p-4 text-center">
                   <GitFork className="w-5 h-5 text-accent mx-auto mb-2" />
                   <p className="text-2xl font-bold font-mono text-accent">
                     {gh.followers}
                   </p>
-                  <p className="text-xs text-muted mt-1">Followers</p>
+                  <p className="text-xs text-muted mt-1">{t({ en: "Followers", fr: "Abonnés" })}</p>
                 </div>
               </div>
             ) : (

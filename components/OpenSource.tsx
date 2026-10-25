@@ -3,12 +3,16 @@ import React from "react";
 import { Github, GitBranch, Terminal, Calculator } from "lucide-react";
 import SpotlightCard from "./SpotlightCard";
 import ScrollFloat from "./ui/ScrollFloat";
+import { useLang } from "@/lib/i18n";
 
 const contributions = [
   {
     title: "MLX — Window Functions",
-    org: "ml-explore/mlx · 4 PRs merged",
-    description: "Contributed the window functions now shipping in mlx.core to Apple's machine learning framework: hanning (#3124), hamming (#3135), blackman (#3136) and bartlett (#3155). Each one validated against NumPy as a numerical reference, plus a prototype native i0 (modified Bessel) kernel to unlock the Kaiser window.",
+    org: { en: "ml-explore/mlx · 4 PRs merged", fr: "ml-explore/mlx · 4 PR fusionnées" },
+    description: {
+      en: "Contributed the window functions now shipping in mlx.core to Apple's machine learning framework: hanning (#3124), hamming (#3135), blackman (#3136) and bartlett (#3155). Each one validated against NumPy as a numerical reference, plus a prototype native i0 (modified Bessel) kernel to unlock the Kaiser window.",
+      fr: "Ajout des fonctions de fenêtrage désormais disponibles dans mlx.core, le framework de machine learning d'Apple : hanning (#3124), hamming (#3135), blackman (#3136) et bartlett (#3155). Chacune validée contre NumPy comme référence numérique, plus un prototype de noyau natif i0 (Bessel modifiée) pour ouvrir la voie à la fenêtre de Kaiser.",
+    },
     icon: Calculator,
     github: "https://github.com/ml-explore/mlx/pulls?q=is%3Apr+author%3AVlor999",
     tags: ["Python", "C++", "Signal Processing"],
@@ -16,8 +20,11 @@ const contributions = [
   },
   {
     title: "pytest & oh-my-zsh",
-    org: "pytest-dev · ohmyzsh · under review",
-    description: "Proposed a --name-only option for pytest's terminal reporter, and git aliases to diff the current branch against main/develop in oh-my-zsh. Both PRs open upstream.",
+    org: { en: "pytest-dev · ohmyzsh · under review", fr: "pytest-dev · ohmyzsh · en revue" },
+    description: {
+      en: "Proposed a --name-only option for pytest's terminal reporter, and git aliases to diff the current branch against main/develop in oh-my-zsh. Both PRs open upstream.",
+      fr: "Proposition d'une option --name-only pour le reporter terminal de pytest, et d'alias git dans oh-my-zsh pour comparer la branche courante à main/develop. Les deux PR sont ouvertes en amont.",
+    },
     icon: GitBranch,
     github: "https://github.com/pytest-dev/pytest/pull/14451",
     tags: ["Python", "Shell", "DX"],
@@ -25,8 +32,11 @@ const contributions = [
   },
   {
     title: "mxtop — Apple Silicon",
-    org: "Vlor999/mxtop · maintainer",
-    description: "Maintain mxtop, a real-time performance monitoring CLI for Apple M-series chips, revived from the unmaintained asitop and published on PyPI. Reworked the rendering so GPU/ANE and memory-bandwidth metrics read at a glance.",
+    org: { en: "Vlor999/mxtop · maintainer", fr: "Vlor999/mxtop · mainteneur" },
+    description: {
+      en: "Maintain mxtop, a real-time performance monitoring CLI for Apple M-series chips, revived from the unmaintained asitop and published on PyPI. Reworked the rendering so GPU/ANE and memory-bandwidth metrics read at a glance.",
+      fr: "Maintenance de mxtop, une CLI de monitoring en temps réel pour les puces Apple M, reprise d'asitop qui n'était plus maintenu et publiée sur PyPI. Refonte de l'affichage pour lire d'un coup d'œil les métriques GPU/ANE et de bande passante mémoire.",
+    },
     icon: Terminal,
     github: "https://github.com/Vlor999/mxtop",
     tags: ["Python", "Monitoring", "CLI"],
@@ -35,11 +45,13 @@ const contributions = [
 ];
 
 export default function OpenSource() {
+  const { lang, t } = useLang();
   return (
     <section id="opensource" className="px-6 py-20 relative">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col items-center mb-16">
           <ScrollFloat
+            key={lang}
             animationDuration={1}
             ease="back.out(2)"
             scrollStart="top bottom-=10%"
@@ -51,8 +63,10 @@ export default function OpenSource() {
           </ScrollFloat>
           <div className="h-1 w-20 bg-accent-green rounded-full mb-6" />
           <p className="text-muted text-center max-w-lg mx-auto">
-            Passionate about contributing back to the community and 
-            improving tools millions of developers use daily.
+            {t({
+              en: "Passionate about contributing back to the community and improving tools millions of developers use daily.",
+              fr: "J'aime contribuer en retour à la communauté et améliorer des outils utilisés chaque jour par des millions de développeurs.",
+            })}
           </p>
         </div>
 
@@ -69,12 +83,12 @@ export default function OpenSource() {
                 </div>
                 <div>
                   <h3 className="font-bold text-lg leading-tight">{item.title}</h3>
-                  <p className="text-xs text-muted font-mono">{item.org}</p>
+                  <p className="text-xs text-muted font-mono">{t(item.org)}</p>
                 </div>
               </div>
               
               <p className="text-sm text-muted/80 leading-relaxed mb-6">
-                {item.description}
+                {t(item.description)}
               </p>
 
               <div className="flex flex-wrap gap-2 mb-8">
@@ -93,7 +107,7 @@ export default function OpenSource() {
                   className="text-xs font-semibold flex items-center gap-2 hover:text-accent transition-colors"
                 >
                   <Github className="w-3.5 h-3.5" />
-                  View Repository
+                  {t({ en: "View Repository", fr: "Voir le dépôt" })}
                 </a>
               </div>
             </SpotlightCard>

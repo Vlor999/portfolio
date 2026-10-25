@@ -2,8 +2,10 @@
 import { ArrowRight, Github, Linkedin, Mail, Award, Cpu, Brain, GitBranch } from "lucide-react";
 import { motion } from "framer-motion";
 import DecryptedText from "./ui/DecryptedText";
+import { useLang } from "@/lib/i18n";
 
 export default function Hero() {
+  const { t } = useLang();
   return (
     <section className="relative min-h-screen flex items-center justify-center px-6 py-24 overflow-hidden">
       {/* Background radial highlight */}
@@ -19,7 +21,7 @@ export default function Hero() {
           className="inline-flex items-center gap-2 px-4 py-2 mb-12 rounded-full border border-card-border bg-card/50 text-muted text-xs font-semibold uppercase tracking-widest"
         >
           <Award className="w-4 h-4 text-accent-amber" />
-          HackerRank Ambassador & Open Source Contributor
+          {t({ en: "Open Source Contributor", fr: "Contributeur open source" })}
         </motion.div>
 
         {/* Name with DecryptedText */}
@@ -50,17 +52,17 @@ export default function Hero() {
           className="space-y-6 mb-16"
         >
           <p className="text-xl sm:text-2xl font-medium text-foreground max-w-3xl mx-auto leading-relaxed">
-            Computer Science Engineer <span className="text-muted">at</span> ENSIMAG <span className="text-muted">&amp;</span> TU Graz
+            Data Scientist <span className="text-muted">{t({ en: "at", fr: "chez" })}</span> Theodo <span className="text-muted">·</span> ENSIMAG <span className="text-muted">&amp;</span> TU Graz
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-muted-foreground text-sm font-medium">
             <span className="flex items-center gap-2">
-              <Cpu className="w-4 h-4 text-accent" /> High-Performance Systems
+              <Cpu className="w-4 h-4 text-accent" /> {t({ en: "High-Performance Systems", fr: "Systèmes haute performance" })}
             </span>
             <span className="flex items-center gap-2">
               <Brain className="w-4 h-4 text-accent-green" /> Deep Learning & RAG
             </span>
             <span className="flex items-center gap-2">
-              <GitBranch className="w-4 h-4 text-accent-amber" /> Open Source Advocate
+              <GitBranch className="w-4 h-4 text-accent-amber" /> {t({ en: "Open Source Advocate", fr: "Open source" })}
             </span>
           </div>
         </motion.div>
@@ -77,7 +79,7 @@ export default function Hero() {
             href="#projects"
             className="group inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-foreground text-background font-bold text-base hover:scale-[1.02] active:scale-95 transition-all"
           >
-            Explore Projects
+            {t({ en: "Explore Projects", fr: "Voir les projets" })}
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
           <div className="flex gap-4">
